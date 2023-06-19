@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+   
+    {% load static %}
+    
+    {% block estilo %}
+
+        <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    
+        {% endblock estilo %}
+    
+    {% block conteudo %}
+
+        <div class="sobre">
+
+            <h3> SOBRE O PROJETO </h3>
+            <p> Um projeto para implementar uma melhoria na Grade de Horários, fornecendo para alunos, docentes e coordenadores uma maior facilidade para utilização além de disponibilizar o mais claro possível as informações. </p>
+
+        </div>
+
+        <hr>
+
+        <div class="img">
+            
+            <img src="{% static '/images/tabela.png' %}" alt="imagem visual da tabela de visualização das aulas">
+        
+        </div>
+        
+        <div class="botao">
+        
+            <a href="{% url 'horario' %}"><input type="button" value="Acessar Horários"></a>
+        
+        </div>
+
+    {% endblock conteudo %}

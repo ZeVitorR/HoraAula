@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+   
+    {% load static %}
+    
+    {% block estilo %}
+
+        <link rel="stylesheet" type="text/css" href="{% static '/css/detalhe.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    {% endblock estilo %}
+  
+    {% block conteudo %}
+
+        <h1> Detalhes da Aula </h1>
+        <div>
+            <p> <span>Matéria:</span> {{ horario.materia.nome }}</p> 
+            <p> <span>Descrição:</span> {{ horario.materia.descricao }} </p> 
+            <p> <span>Curso:</span>  {{ horario.materia.curso }}</p> 
+            <p> <span>Semestre:</span> {{ horario.materia.semestre }}</p> 
+            <p> <span>Professor:</span> {{ horario.materia.professor.nome }}</p> 
+            <p> <span>Dia:</span>  {{ horario.dia }}</p> 
+            <p> <span>Horário:</span> {{ horario.horario }}</p> 
+        </div>
+        <a href="{% url 'horario' %}"><button>Voltar</button></a>
+    {% endblock conteudo %}

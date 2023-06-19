@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+   
+    {% load static %}
+    {% block estilo %}
+        <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+    {% endblock %}
+
+{% block conteudo %}
+
+  <main>
+
+    <h1> Login </h1>
+
+    <form action="{% url 'login' %}" method="post">
+
+        {% csrf_token %}
+
+        <label for="" class="form-label"> Usuário <input type="text" class="form-control" name="username" id="" aria-describedby="emailHelp"></label>
+
+        <label for="" class="form-label"> Senha <input type="password" class="form-control" name="password" id="exampleInputPassword1"></label>
+
+        <button type="submit" class="btn btn-primary"> Entrar </button>
+
+    </form>
+
+  </main>
+
+{% endblock %}

@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+   
+    {% load static %}
+    
+    {% block estilo %}
+
+        <link rel="stylesheet" type="text/css" href="{% static '/css/create.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    {% endblock estilo %}
+  
+{% block conteudo %}
+
+    <main>
+
+        <form action="{% url 'salvar' %}" method="POST">
+
+            {% csrf_token %}
+            <br><br>
+            <h1> Inserir Horário </h1>
+            <br><br>
+            <label for="escolha-dia"> Dia da semana: </label>
+            <select name="dia" id="escolha-dia">
+
+                <option value="segunda"> Segunda-Feira </option>
+                <option value="terca"> Terça-Feira </option>
+                <option value="quarta"> Quarta-Feira </option>
+                <option value="quinta"> Quinta-Feira </option>
+                <option value="sexta"> Sexta-Feira </option>
+
+            </select>
+
+            <br><br>
+
+            <table>
+
+                <tbody>
+
+                    <tr class="primeiro-horario">
+
+                        <td class="horario"> 19h10 - 20h00 </td>
+
+                        <td> 
+                            
+                            <select name="nome-materia1" id="materia">
+
+                            <option> Matéria </option>
+
+                            {% for materia in materias %} 
+
+                                <option value="{{materia.id}}"> {{ materia.nome }} </option>
+
+                            {% endfor %} 
+
+                            </select>
+
+                        </td>
+
+                        <td>
+
+                            <select name="nome-professor1" id="professor">
+
+                                <option> Professor </option>
+
+                                {% for professor in professores %}
+
+                                    <option value="{{professor.id}}"> {{ professor.nome }} </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="segundo-horario">
+
+                        <td class="horario"> 20h00 - 20h50 </td>
+
+                        <td> 
+                            
+                            <select name="nome-materia2" id="materia">
+
+                            <option> Matéria </option>
+
+                            {% for materia in materias %} 
+
+                                <option value="{{materia.id}}"> {{ materia.nome }} </option>
+
+                            {% endfor %} 
+
+                        </select>
+
+                    </td>
+
+                        <td> 
+                            
+                            <select name="nome-professor2" id="professor">
+
+                                <option> Professor </option>
+                                
+                                {% for professor in professores %}
+
+                                    <option value="{{professor.id}}"> {{ professor.nome }} </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="terceiro-horario">
+
+                        <td class="horario"> 21h05 - 21h55 </td>
+
+                        <td>
+                            
+                            <select name="nome-materia3" id="materia">
+
+                            <option> Matéria </option>
+
+                            {% for materia in materias %} 
+
+                                <option value="{{materia.id}}"> {{ materia.nome }} </option>
+
+                            {% endfor %}  
+
+                            </select> 
+
+                        </td>
+
+                        <td>
+
+                            <select name="nome-professor3" id="professor">
+
+                                <option> Professor </option>
+
+                                {% for professor in professores %} 
+
+                                    <option value="{{professor.id}}"> {{ professor.nome }} </option>
+
+                                {% endfor %} 
+
+                            </select>
+
+                        </td>
+
+                    </tr>
+
+                    <tr class="quarto-horario">
+
+                        <td class="horario"> 21h55 - 22h45 </td>
+
+                        <td>
+                            
+                            <select name="nome-materia4" id="materia">
+
+                            <option> Matéria </option>
+
+                            {% for materia in materias %} 
+
+                                <option value="{{materia.id}}"> {{ materia.nome }} </option>
+
+                            {% endfor %}  
+
+                            </select> 
+
+                        </td>
+
+                        <td> 
+
+                            <select name="nome-professor4" id="professor">
+
+                                <option> Professor </option>
+
+                                {% for professor in professores %} 
+
+                                    <option value="{{professor.id}}"> {{ professor.nome }} </option>
+
+                                {% endfor %}  
+
+                            </select>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <br><br><br><br>
+
+            <nav>
+
+                <!-- <button type="submit" class="button"></button> -->
+                <input class="button" type="submit" value="Salvar">
+                <a href=""><input class="button" type="button" value="Cancelar"></a>
+
+            </nav>
+
+        </form>
+        <br><br>
+
+    </main>
+
+{% endblock conteudo %}
